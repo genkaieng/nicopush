@@ -6,13 +6,19 @@ Web Pushをサブスクライブして受信した通知を標準出力します
 
 ## 実行手順
 
-### .env ファイルを作成
+### 0. ソースコードを落とす
+
+```sh
+git clone git@github.com:genkaieng/niconico-notification.git
+```
+
+### 1. .env ファイルを作成
 
 ```sh
 cp .env.example .env
 ```
 
-#### ニコニコのセッションキーを環境変数に設定
+#### 1.1 ニコニコのセッションキーを環境変数に設定
 
 ニコニコのページ https://www.nicovideo.jp/ をブラウザで開きデベロッパーツールを開きます。(F12キー押下)
 
@@ -25,7 +31,7 @@ cp .env.example .env
 
 https://github.com/genkaieng/niconico-notification/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L1-L2
 
-#### キーを環境変数に設定
+#### 1.2 キー生成&環境変数に設定
 
 暗号化まわりのキーを生成します。
 
@@ -37,7 +43,7 @@ go run cmd/genkeys/main.go
 
 https://github.com/genkaieng/niconico-notification/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L4-L8
 
-### サーバー起動
+### 2. サーバー起動
 
 ```sh
 go run cmd/subscribe/main.go
