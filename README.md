@@ -22,7 +22,7 @@ cp .env.example .env
 
 ニコニコのページ https://www.nicovideo.jp/ をブラウザで開きデベロッパーツールを開きます。(F12キー押下)
 
-デベロッパーツールのアプリケーションタブの左ペインの `Cookie > https://www.nicovideo.jp` から`user_session`セッションキーを見つけます。
+デベロッパーツールの**アプリケーションタブ**の左ペインの `ストレージ > Cookie > https://www.nicovideo.jp` から`user_session`セッションキーを見つけます。
 (`user_session_xxx`という形式の値があります。)
 
 **※セッションキーは他人に教えないでください**
@@ -31,15 +31,15 @@ cp .env.example .env
 
 https://github.com/genkaieng/niconico-notification/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L1-L2
 
-#### 1.2 キー生成&環境変数に設定
+#### 1.2 キーを生成&環境変数に設定
 
 暗号化まわりのキーを生成します。
 
-``sh
+```sh
 go run cmd/genkeys/main.go
-``
+```
 
-出力されたキーを.envファイルに貼り付け。
+出力されたキーを.envファイルの以下の部分に貼り付け。
 
 https://github.com/genkaieng/niconico-notification/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L4-L8
 
@@ -49,6 +49,6 @@ https://github.com/genkaieng/niconico-notification/blob/ef4ceb4ac7121c7472b1a5db
 go run cmd/subscribe/main.go
 ```
 
-※起動すると `UAID` が出力されるので、その値を.envに貼り付け。(次回起動時にセッションが保持されます。)
+※起動すると `UAID` が出力されるので、その値を.envに貼り付け。(WebPushサーバーから吐き出されるユーザー識別子。セッションを保持してくれます。)
 
 https://github.com/genkaieng/niconico-notification/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L10-L11
