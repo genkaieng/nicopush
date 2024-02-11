@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/base64"
 
-	"github.com/genkaieng/niconico-notification/pkg/webpush"
+	"github.com/genkaieng/nicopush-subscriber/pkg/webpush"
 )
 
 func main() {

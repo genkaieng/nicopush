@@ -7,8 +7,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/genkaieng/niconico-notification/pkg/niconico"
-	"github.com/genkaieng/niconico-notification/pkg/webpush"
+	"github.com/genkaieng/nicopush-subscriber/pkg/niconico"
+	"github.com/genkaieng/nicopush-subscriber/pkg/webpush"
 	_ "github.com/joho/godotenv/autoload"
 )
 
@@ -19,7 +19,7 @@ func main() {
 	channelID := os.Getenv("CHANNEL_ID")
 	uaid := os.Getenv("UAID")
 	session := os.Getenv("SESSION")
-	if pub == "" || priv == "" || auth == "" || channelID == "" {
+	if pub == "" || priv == "" || auth == "" || channelID == "" || session == "" {
 		panic("環境変数を設定してください。")
 	}
 	keyPair := webpush.KeyPair{
@@ -35,7 +35,8 @@ func main() {
 
 	go func() {
 		<-interrupt
-		// Push通知のサブスクライブ終了処理
+		// Push通知のsubscribe終了処理
+
 		if nicoApi != nil {
 			_, _, err := nicoApi.Unregister()
 			if err != nil {

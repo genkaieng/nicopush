@@ -105,8 +105,6 @@ func computeNonce(base []byte, seq int) []byte {
 	copy(nonce, base[:12])
 
 	for i := 0; i < 6; i++ {
-		// インデックスの特定のバイトを取得してnonceに適用します
-		// C# の `(byte)(index / System.Math.Pow(256, i)) & 0xff` と同等
 		shiftedIndexByte := byte((seq >> (8 * i)) & 0xff)
 		nonce[11-i] ^= shiftedIndexByte
 	}

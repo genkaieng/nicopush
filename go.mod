@@ -1,4 +1,4 @@
-module github.com/genkaieng/niconico-notification
+module github.com/genkaieng/nicopush-subscriber
 
 go 1.21.5
 

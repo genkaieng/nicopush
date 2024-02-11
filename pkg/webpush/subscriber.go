@@ -58,9 +58,8 @@ func (sub *Subscriber) SendHello(uaid string) (string, error) {
 }
 
 func (sub *Subscriber) Subscribe(channelID string, notification chan string, pushEndpoint chan string) error {
-	// FireFoxなどのブラウザでニコニコの設置画面開きブラウザの開発ツールを開く。
+	// FireFoxなどのブラウザでニコニコの設定画面（https://account.nicovideo.jp/my/account）を開きブラウザの開発ツールを開く。
 	// アプリケーションタブからsw.jsの内容を表示すると以下のキーが埋め込まれているのでこれを拝借。
-	// https://account.nicovideo.jp/my/account
 	key := base64.URLEncoding.EncodeToString([]byte{4, 45, 60, 21, 218, 246, 36, 40, 82, 47, 73, 43, 230, 41, 142, 247, 210, 250, 205, 145, 186, 70, 125, 45, 4, 5, 141, 78, 90, 217, 124, 155, 108, 14, 135, 128, 190, 98, 82, 107, 176, 167, 80, 225, 233, 54, 23, 121, 204, 233, 52, 98, 116, 83, 160, 67, 147, 227, 182, 11, 122, 223, 3, 166, 40})
 
 	err := sub.conn.WriteMessage(websocket.TextMessage, []byte(`{"messageType":"register","channelID":"`+channelID+`","key":"`+key+`"}`))
