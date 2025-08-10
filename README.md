@@ -36,7 +36,7 @@ https://github.com/genkaieng/nicopush/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08
 暗号化まわりのキーを生成します。
 
 ```sh
-go run cmd/genkeys/main.go
+go run main.go genkeys
 ```
 
 出力されたキーを.envファイルの以下の部分に貼り付け。
@@ -46,7 +46,7 @@ https://github.com/genkaieng/nicopush/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08
 ### 2. サーバー起動
 
 ```sh
-go run cmd/subscribe/main.go
+go run main.go subscribe
 ```
 
 ※起動すると `UAID` が出力されるので、その値を.envに貼り付け。(WebPushサーバーから吐き出されるユーザー識別子。セッションを保持してくれます。)
