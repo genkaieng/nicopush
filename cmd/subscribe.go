@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"encoding/base64"
@@ -12,7 +12,7 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 )
 
-func main() {
+func Subscribe(args []string) int {
 	pub := os.Getenv("PUBLIC_KEY")
 	priv := os.Getenv("PRIVATE_KEY")
 	auth := os.Getenv("AUTH")
@@ -98,6 +98,8 @@ func main() {
 	if err = sub.Subscribe(channelID, notification, pushEndpoint); err != nil {
 		log.Println("ERROR", err)
 	}
+
+	return 0
 }
 
 func base64ToByte(s string) []byte {

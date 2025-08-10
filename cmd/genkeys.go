@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"encoding/base64"
@@ -6,7 +6,7 @@ import (
 	"github.com/genkaieng/nicopush-subscriber/pkg/webpush"
 )
 
-func main() {
+func Genkeys(args []string) int {
 	keyPair := webpush.NewKeyPair()
 	println("PUBLIC_KEY=" + base64.StdEncoding.EncodeToString(keyPair.Pub))
 	println("PRIVATE_KEY=" + base64.StdEncoding.EncodeToString(keyPair.Priv))
@@ -16,4 +16,6 @@ func main() {
 
 	channelID := webpush.GenChannelID()
 	println("CHANNEL_ID=" + channelID)
+
+	return 0
 }
