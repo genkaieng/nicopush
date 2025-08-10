@@ -8,14 +8,14 @@ import (
 
 func Genkeys(args []string) int {
 	keyPair := webpush.NewKeyPair()
-	println("PUBLIC_KEY=" + base64.StdEncoding.EncodeToString(keyPair.Pub))
-	println("PRIVATE_KEY=" + base64.StdEncoding.EncodeToString(keyPair.Priv))
+	println("NICOPUSH_PUBLIC_KEY=" + base64.StdEncoding.EncodeToString(keyPair.Pub))
+	println("NICOPUSH_PRIVATE_KEY=" + base64.StdEncoding.EncodeToString(keyPair.Priv))
 
 	auth := webpush.NewAuth()
-	println("AUTH=" + base64.StdEncoding.EncodeToString(auth))
+	println("NICOPUSH_AUTH=" + base64.StdEncoding.EncodeToString(auth))
 
 	channelID := webpush.GenChannelID()
-	println("CHANNEL_ID=" + channelID)
+	println("NICOPUSH_CHANNEL_ID=" + channelID)
 
 	return 0
 }

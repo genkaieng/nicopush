@@ -13,12 +13,12 @@ import (
 )
 
 func Subscribe(args []string) int {
-	pub := os.Getenv("PUBLIC_KEY")
-	priv := os.Getenv("PRIVATE_KEY")
-	auth := os.Getenv("AUTH")
-	channelID := os.Getenv("CHANNEL_ID")
-	uaid := os.Getenv("UAID")
-	session := os.Getenv("SESSION")
+	pub := os.Getenv("NICOPUSH_PUBLIC_KEY")
+	priv := os.Getenv("NICOPUSH_PRIVATE_KEY")
+	auth := os.Getenv("NICOPUSH_AUTH")
+	channelID := os.Getenv("NICOPUSH_CHANNEL_ID")
+	uaid := os.Getenv("NICOPUSH_UAID")
+	session := os.Getenv("NICOLIVE_SESSION")
 	if pub == "" || priv == "" || auth == "" || channelID == "" || session == "" {
 		panic("環境変数を設定してください。")
 	}
