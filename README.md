@@ -1,4 +1,4 @@
-# nicopush-subscriber
+# nicopush
 
 ニコニコ通知サーバー
 
@@ -9,7 +9,7 @@ Web Pushをサブスクライブして受信した通知を標準出力します
 ### 0. ソースコードを落とす
 
 ```sh
-git clone git@github.com:genkaieng/nicopush-subscriber.git
+git clone git@github.com:genkaieng/nicopush.git
 ```
 
 ### 1. .env ファイルを作成
@@ -29,7 +29,7 @@ cp .env.example .env
 
 これを.envファイルの `SESSION=` の後ろに貼り付け。
 
-https://github.com/genkaieng/nicopush-subscriber/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L1-L2
+https://github.com/genkaieng/nicopush/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L1-L2
 
 #### 1.2 キーを生成&環境変数に設定
 
@@ -41,7 +41,7 @@ go run cmd/genkeys/main.go
 
 出力されたキーを.envファイルの以下の部分に貼り付け。
 
-https://github.com/genkaieng/nicopush-subscriber/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L4-L8
+https://github.com/genkaieng/nicopush/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L4-L8
 
 ### 2. サーバー起動
 
@@ -51,4 +51,4 @@ go run cmd/subscribe/main.go
 
 ※起動すると `UAID` が出力されるので、その値を.envに貼り付け。(WebPushサーバーから吐き出されるユーザー識別子。セッションを保持してくれます。)
 
-https://github.com/genkaieng/nicopush-subscriber/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L10-L11
+https://github.com/genkaieng/nicopush/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L10-L11

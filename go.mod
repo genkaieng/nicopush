@@ -1,4 +1,4 @@
-module github.com/genkaieng/nicopush-subscriber
+module github.com/genkaieng/nicopush
 
 go 1.21.5
 

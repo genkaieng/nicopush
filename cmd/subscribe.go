@@ -7,8 +7,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/genkaieng/nicopush-subscriber/pkg/niconico"
-	"github.com/genkaieng/nicopush-subscriber/pkg/webpush"
+	"github.com/genkaieng/nicopush/pkg/niconico"
+	"github.com/genkaieng/nicopush/pkg/webpush"
 	_ "github.com/joho/godotenv/autoload"
 )
 

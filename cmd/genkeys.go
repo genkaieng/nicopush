@@ -3,7 +3,7 @@ package cmd
 import (
 	"encoding/base64"
 
-	"github.com/genkaieng/nicopush-subscriber/pkg/webpush"
+	"github.com/genkaieng/nicopush/pkg/webpush"
 )
 
 func Genkeys(args []string) int {

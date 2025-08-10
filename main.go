@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/genkaieng/nicopush-subscriber/cmd"
+	"github.com/genkaieng/nicopush/cmd"
 )
 
 func main() {
