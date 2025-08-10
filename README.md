@@ -4,13 +4,23 @@
 
 Web Pushをサブスクライブして受信した通知を標準出力します。
 
-## 実行手順
+## インストール手順
 
-### 0. ソースコードを落とす
+以下のいずれかの方法
+
+### go install
+
+```sh
+go install github.com/genkaieng/nicopush@latest
+```
+
+### ソースコードを落とす
 
 ```sh
 git clone git@github.com:genkaieng/nicopush.git
 ```
+
+## 実行手順
 
 ### 1. .env ファイルを作成
 
@@ -27,28 +37,28 @@ cp .env.example .env
 
 **※セッションキーは他人に教えないでください**
 
-これを.envファイルの `SESSION=` の後ろに貼り付け。
+環境変数 `NICOLIVE_SESSION=` を設定する。
 
-https://github.com/genkaieng/nicopush/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L1-L2
+https://github.com/genkaieng/nicopush/blob/2e0ef5cf1fa5e13a1a2b8e46cd727e9409b5d3d0/.env.example#L3-L4
 
 #### 1.2 キーを生成&環境変数に設定
 
 暗号化まわりのキーを生成します。
 
 ```sh
-go run main.go genkeys
+nicopush genkeys
 ```
 
-出力されたキーを.envファイルの以下の部分に貼り付け。
+出力されたキーを環境変数に設定する
 
-https://github.com/genkaieng/nicopush/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L4-L8
+https://github.com/genkaieng/nicopush/blob/2e0ef5cf1fa5e13a1a2b8e46cd727e9409b5d3d0/.env.example#L6-L10
 
 ### 2. サーバー起動
 
 ```sh
-go run main.go subscribe
+nicopush subscribe
 ```
 
-※起動すると `UAID` が出力されるので、その値を.envに貼り付け。(WebPushサーバーから吐き出されるユーザー識別子。セッションを保持してくれます。)
+※起動すると `NICOPUSH_UAID` が出力されるので、その値を環境変数に設定する。(WebPushサーバーから吐き出されるユーザー識別子。セッションを保持してくれるらしい。)
 
-https://github.com/genkaieng/nicopush/blob/ef4ceb4ac7121c7472b1a5dbf613887546c08690/.env.example#L10-L11
+https://github.com/genkaieng/nicopush/blob/2e0ef5cf1fa5e13a1a2b8e46cd727e9409b5d3d0/.env.example#L12-L13
