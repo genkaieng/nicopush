@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"encoding/base64"
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -57,7 +58,7 @@ func Subscribe(args []string) int {
 		panic(err)
 	}
 	if uaid != newUaid {
-		println("WARN", "UAID="+newUaid)
+		log.Println("WARN", "UAID="+newUaid)
 	}
 
 	notification := make(chan string)
@@ -91,7 +92,7 @@ func Subscribe(args []string) int {
 	go func() {
 		for {
 			n := <-notification
-			log.Println("INFO", "notification", n)
+			fmt.Println("Notification:", n)
 		}
 	}()
 
